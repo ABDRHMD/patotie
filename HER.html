@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love, Patotieeee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Dancing Script', cursive;
+      background-image: url('https://science.nasa.gov/wp-content/uploads/2023/07/52515250436-6ea8fea1ca-o1.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: -1;
+    }
+
+    .welcome {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 10px #fff, 0 0 20px #f0f, 0 0 30px #f0f;
+      animation: fadeOut 4s forwards;
+      z-index: 10;
+    }
+
+    .after-welcome {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.8rem;
+      color: #ffc0cb;
+      text-shadow: 0 0 10px #fff;
+      overflow: hidden;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    section {
+      margin: 4rem 0;
+    }
+
+    .moon img {
+      max-width: 100%;
+      border: 2px solid white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #fff;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .moon {
+      text-align: center;
+    }
+
+    .editable-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px dashed #ffc0cb;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem auto;
+      min-height: 150px;
+      color: white;
+      text-shadow: 0 0 5px #ffc0cb;
+      resize: vertical;
+      width: 90%;
+      box-shadow: 0 0 10px #f0f;
+      display: none;
+    }
+
+    .editable-box.visible {
+      display: block;
+      animation: fadeInSlide 1s ease forwards;
+    }
+
+    @keyframes fadeInSlide {
+      0% { opacity: 0; transform: translateX(100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .editable-box.left.visible {
+      animation: fadeInSlideLeft 1s ease forwards;
+    }
+
+    @keyframes fadeInSlideLeft {
+      0% { opacity: 0; transform: translateX(-100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .final-message {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 2px solid white;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #f0f, 0 0 20px #0ff;
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,192,203,0.8);
+      border: 2px solid white;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 20;
+      box-shadow: 0 0 10px #fff;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .reveal-btn {
+      display: block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background: #ffc0cb;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-family: 'Dancing Script', cursive;
+      box-shadow: 0 0 10px #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="welcome">Hello Patotieeee </div>
+  <div class="after-welcome" id="quote-text"></div>
+
+  <button class="music-btn" onclick="toggleMusic()">♫ Toggle Music</button>
+  <audio id="bg-music" autoplay loop>
+  <source src="background-music.mp3.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+  <main>
+    <section class="moon">
+      <h2>Moon on January 21, 2007</h2>
+      <img src="https://lunaf.com/img/moon/h-phase-3.png" alt="Moon image">
+      <p>Weather on that day:</p>
+      <ul>
+        <li>Temperature: 12°C</li>
+        <li>Weather: Clear skies</li>
+        <li>Wind: Light breeze</li>
+      </ul>
+    </section>
+
+    <section>
+      <button class="reveal-btn" onclick="revealBoxes()">Click here to reveal the surprises</button>
+
+<div class="editable-box left" data-id="box1">
+  <h2 class="box-title">Your Birth</h2>
+  On the 21st of January, 2007, the universe blinked and smiled — because you arrived.<br><br>
+  The stars must have whispered your name that night, and even the moon looked softer, as if welcoming its celestial twin.<br><br>
+  The world didn’t know it yet, but something magical had entered — a soul so rare, a light so tender, and a girl who’d one day become the center of my galaxy.<br><br>
+  That day wasn’t just your birth… it was the day the universe started preparing me for you.
+</div>
+
+<div class="editable-box" data-id="box2">
+  <h2 class="box-title">My First Fall</h2>
+  I remember it so clearly — the exact second when my heart shifted.<br><br>
+  It wasn’t some grand gesture or movie-perfect scene — it was just… you.<br><br>
+  The way you laughed, not just with your voice, but with your whole being. The way you looked at the world, unaware that you made it better just by existing.<br><br>
+  That was the moment. That’s when I knew — you weren’t just a person I liked.<br>
+  You were the one I couldn’t imagine life without.
+</div>
+
+<div class="editable-box left" data-id="box3">
+  <h2 class="box-title">Your Beauty</h2>
+  Your beauty is the kind poets spend lifetimes failing to capture.<br><br>
+  Your eyes — like constellations gently burning in a velvet sky, forever pulling me in with their gravity.<br>
+  Your smile — a sunrise, soft and golden, banishing all my shadows.<br>
+  Your voice — like a sonnet sung by spring winds over quiet waters.<br><br>
+  You are grace sculpted by the cosmos, elegance wrapped in moonlight — and yet somehow, even those words fall short of you.
+</div>
+
+<div class="editable-box" data-id="box4">
+  <h2 class="box-title">The Promise</h2>
+  One day, beneath skies that have watched our love bloom in silence,<br>
+  I will stand before you — not just to marry you in a ceremony,<br>
+  but to vow every dawn and every dusk to you, again and again.<br><br>
+  I promise to make a home in your laughter,<br>
+  to gather stardust in your hair while you sleep,<br>
+  to dance barefoot with you in our kitchen as if no one’s watching —<br>
+  and even if the world ends, I’ll still be yours beyond time.<br><br>
+  We’ll grow old like twin trees entangled,<br>
+  our roots deep, our stories whispered in the wind.<br><br>
+  You are my last wish, my final prayer, my forever.<br>
+  And I promise — I’ll meet you at every version of forever there is.
+</div>
+    </section>
+
+    <section class="final-message">
+      <div  data-id="final"> Made by your beloved guy<br>With love Abderrahmane UwU </div>
+    </section>
+  </main>
+
+  <script>
+function toggleMusic() {
+  const music = document.getElementById('bg-music');
+  if (music.paused) {
+    music.play().catch(() => alert("Click again to allow music (autoplay blocked)."));
+  } else {
+    music.pause();
+  }
+}
+
+function revealBoxes() {
+  const firstBox = document.querySelector('.editable-box');
+  if (firstBox) {
+    firstBox.scrollIntoView({ behavior: 'smooth' });
+  }
+  document.querySelectorAll('.editable-box').forEach((box, index) => {
+    setTimeout(() => box.classList.add('visible'), index * 300);
+  });
+}
+
+// Typing animation for the quote
+const quote = "You are my universe, and I will always orbit around your heart.";
+const quoteElement = document.getElementById("quote-text");
+let index = 0;
+function typeQuote() {
+  if (index < quote.length) {
+    quoteElement.innerHTML += quote.charAt(index);
+    index++;
+    setTimeout(typeQuote, 40);
+  }
+}
+typeQuote();
+
+// Save and load text
+  document.querySelectorAll('[contenteditable][data-id]').forEach(el => {
+    const id = el.dataset.id;
+    const savedText = localStorage.getItem('text-' + id);
+    if (savedText) el.innerHTML = savedText;
+    el.addEventListener('input', () => {
+      localStorage.setItem('text-' + id, el.innerHTML);
+    });
+  });
+</script>
+</body>
+</html>
